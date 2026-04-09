@@ -19,6 +19,7 @@ installer/*.exe
 # Upload and deployment
 SourceForge.json
 upload_to_sourceforge.bat
+build_installer.bat
 
 # Project-local docs and notes
 CLAUDE.md
