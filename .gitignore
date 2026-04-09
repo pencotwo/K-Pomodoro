@@ -16,8 +16,15 @@ dist/
 # Installer intermediate files
 installer/*.exe
 
-# Upload state
+# Upload and deployment
 SourceForge.json
+upload_to_sourceforge.bat
+
+# Project-local docs and notes
+CLAUDE.md
+SIGNING.md
+policy.txt
+runFullTrust.txt
 
 # Claude Code
 .claude/
