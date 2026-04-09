@@ -1,5 +1,0 @@
-K-Pomodoro is a WPF (.NET 8) desktop app packaged via Desktop Bridge (MSIX). runFullTrust is required because WPF is a Win32-based framework that cannot run in the restricted AppContainer environment — this is standard for all WPF/WinForms Store apps.
-
-It is used solely to: run the WPF UI pipeline, read/write a local settings file (AppData) for user preferences, and run a countdown timer.
-
-The app has no internet access and all data stays on the user's device.
