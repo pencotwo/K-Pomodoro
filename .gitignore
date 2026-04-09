@@ -1,0 +1,23 @@
+# Build output
+bin/
+obj/
+publish/
+installer_output/
+dist/
+
+# Visual Studio
+.vs/
+*.user
+
+# Binaries and archives
+*.exe
+*.zip
+
+# Installer intermediate files
+installer/*.exe
+
+# Upload state
+SourceForge.json
+
+# Claude Code
+.claude/

@@ -1,0 +1,38 @@
+================================================================
+English
+================================================================
+
+K-Pomodoro is a minimalist Pomodoro timer for Windows.
+
+Stay focused with timed work sessions and short breaks, all
+tracked through a clean, distraction-free interface.
+
+Features:
+- Configurable work cycles (2–8 sessions per day)
+- 25-minute work sessions with 5-minute breaks
+- Visual progress grid — see exactly where you are in your day
+- Work log — review completed sessions with notes and next-session hints
+- Dark, minimal UI that stays out of your way
+- No ads, no accounts, no internet connection required
+
+Perfect for students, developers, writers, and anyone who wants
+to build a focused daily work habit.
+
+
+================================================================
+繁體中文
+================================================================
+
+K-Pomodoro 是一款專為 Windows 設計的極簡番茄鐘工作計時器。
+
+透過清晰無干擾的介面，幫助你維持專注，完成每日的工作循環。
+
+功能特色：
+- 自訂每日工作循環數（2 至 8 個循環）
+- 每循環 25 分鐘工作、5 分鐘休息
+- 視覺化進度列，一眼掌握今日完成進度
+- 工作紀錄 — 記錄每次完成的工作內容與下次提示
+- 深色極簡介面，專注工作不分心
+- 無廣告、無帳號、無需網路連線
+
+適合學生、工程師、寫作者，以及所有想建立高效工作習慣的人。
