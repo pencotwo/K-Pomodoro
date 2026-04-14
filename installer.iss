@@ -1,5 +1,7 @@
 #define MyAppName "K-Pomodoro"
-#define MyAppVersion "1.2.0"
+#ifndef MyAppVersion
+#define MyAppVersion "1.3.0"
+#endif
 #define MyAppPublisher "K-Pomodoro"
 #define MyAppExeName "KPomodoro.exe"
 #define SourceDir "publish"

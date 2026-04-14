@@ -123,7 +123,26 @@ namespace PomodoroApp2
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e) =>
-            Application.Current.Shutdown();
+            Close();
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            // If session is active (Start button disabled) and not at initial state
+            if (!BtnStart.IsEnabled && (_currentCycle > 1 || _secondsRemaining < WorkTime || _isBreak))
+            {
+                var s = LoadSettings();
+                s.Logs.Add(new WorkLogEntry
+                {
+                    Date = DateTime.Now,
+                    Cycles = _currentCycle,
+                    Comment = "Auto-recorded (App Closed)",
+                    NextHint = "",
+                    Completed = false
+                });
+                SaveSettings(s);
+            }
+            base.OnClosing(e);
+        }
 
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
@@ -203,22 +222,7 @@ namespace PomodoroApp2
             TxtStatus.Text = _isBreak ? "Resting..." : "Focusing...";
             BtnStart.IsEnabled  = false;
             BtnStart.Background = new SolidColorBrush(DisabledColor);
-        }
-
-        private void BtnReset_Click(object sender, RoutedEventArgs e)
-        {
-            _timer.Stop();
-            _currentCycle = 1;
-            _isBreak = false;
-            _testMode = false;
-            _timer.Interval    = TimeSpan.FromSeconds(1);
-            TxtTitle.Text      = "K-POMODORO";
-            TxtTitle.Foreground = new SolidColorBrush(Color.FromRgb(0x70, 0x70, 0xA0));
-            BtnStart.IsEnabled = true;
-            ResetTimer();
-            Bar1.Value = Bar2.Value = Bar3.Value = Bar4.Value = Bar5.Value =
-            Bar6.Value = Bar7.Value = Bar8.Value = 0;
-            ApplyTheme(isBreak: false);
+            BtnStop.IsEnabled = true;
         }
 
         private void ResetTimer()
@@ -226,6 +230,7 @@ namespace PomodoroApp2
             _secondsRemaining = WorkTime;
             UpdateDisplay();
             TxtStatus.Text = "Ready to Work";
+            BtnStop.IsEnabled = false;
         }
 
         // ── 設定檔讀寫 ───────────────────────────────────────
@@ -264,25 +269,45 @@ namespace PomodoroApp2
 
         // ── 工作日誌 ─────────────────────────────────────────
 
+        private void BtnStop_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_timer.IsEnabled && _currentCycle == 1 && _secondsRemaining == WorkTime) 
+                return; // Nothing to stop if not started
+
+            _timer.Stop();
+            ShowWorkLogDialog(isCompleted: false, showCompletionUI: false);
+            
+            // Reset UI state
+            _currentCycle = 1;
+            _isBreak = false;
+            BtnStart.IsEnabled = true;
+            BtnStart.Background = new SolidColorBrush(WorkColor);
+            ResetTimer();
+            var bars = new[] { Bar1, Bar2, Bar3, Bar4, Bar5, Bar6, Bar7, Bar8 };
+            foreach (var bar in bars) bar.Value = 0;
+            ApplyTheme(isBreak: false);
+        }
+
         private void BtnWorkLog_Click(object sender, RoutedEventArgs e)
         {
             var logs = LoadSettings().Logs;
             new WorkLogListWindow(logs) { Owner = this }.ShowDialog();
         }
 
-        private void ShowWorkLogDialog()
+        private void ShowWorkLogDialog(bool isCompleted = true, bool showCompletionUI = true)
         {
-            var dlg = new WorkLogWindow { Owner = this };
+            var dlg = new WorkLogWindow(showCompletionUI) { Owner = this };
+            
             if (dlg.ShowDialog() == true)
             {
                 var s = LoadSettings();
                 s.Logs.Add(new WorkLogEntry
                 {
                     Date = DateTime.Now,
-                    Cycles = _totalCycles,
+                    Cycles = _currentCycle, // Current cycle reached
                     Comment = dlg.Comment,
                     NextHint = dlg.NextHint,
-                    Completed = dlg.IsCompleted
+                    Completed = isCompleted
                 });
                 SaveSettings(s);
             }

@@ -9,11 +9,17 @@ namespace PomodoroApp2
         public string NextHint { get; private set; } = "";
         public bool IsCompleted { get; private set; }
 
-        public WorkLogWindow()
+        public WorkLogWindow(bool showCompletionUI = true)
         {
             InitializeComponent();
             TxtDate.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             TxtComment.Focus();
+
+            if (!showCompletionUI)
+            {
+                CompletionBadge.Visibility = Visibility.Collapsed;
+                BtnDone.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)

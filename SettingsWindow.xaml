@@ -15,7 +15,7 @@
 
             <!-- 標題列 -->
             <Grid Margin="0,0,0,20">
-                <TextBlock Text="SETTINGS" Foreground="#7070A0" FontSize="10"
+                <TextBlock Text="SETTINGS" Foreground="#D0D0E0" FontSize="10"
                            FontWeight="Bold" VerticalAlignment="Center"/>
                 <Button HorizontalAlignment="Right" VerticalAlignment="Center"
                         Width="24" Height="24" Click="BtnClose_Click" Cursor="Hand"
@@ -37,7 +37,7 @@
             </Grid>
 
             <!-- 循環數設定 -->
-            <TextBlock Text="Cycle Count" Foreground="#9090C0" FontSize="12"
+            <TextBlock Text="Cycle Count" Foreground="#E0E0F0" FontSize="12"
                        Margin="0,0,0,10"/>
 
             <Grid Margin="0,0,0,6">
@@ -54,12 +54,12 @@
             </Grid>
 
             <Grid Margin="0,2,0,0">
-                <TextBlock Text="2" Foreground="#555575" FontSize="10" HorizontalAlignment="Left"/>
-                <TextBlock Text="8" Foreground="#555575" FontSize="10" HorizontalAlignment="Right"/>
+                <TextBlock Text="2" Foreground="#A0A0D0" FontSize="10" HorizontalAlignment="Left"/>
+                <TextBlock Text="8" Foreground="#A0A0D0" FontSize="10" HorizontalAlignment="Right"/>
             </Grid>
 
             <!-- 版號 -->
-            <TextBlock x:Name="TxtVersion" Foreground="#444466" FontSize="10"
+            <TextBlock x:Name="TxtVersion" Foreground="#9090B0" FontSize="10"
                        HorizontalAlignment="Center" Margin="0,16,0,0"/>
 
             <!-- 確認 / 取消 -->

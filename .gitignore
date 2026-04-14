@@ -20,6 +20,8 @@ installer/*.exe
 SourceForge.json
 upload_to_sourceforge.bat
 build_installer.bat
+stage1.bat
+stage3.bat
 
 # Project-local docs and notes
 CLAUDE.md

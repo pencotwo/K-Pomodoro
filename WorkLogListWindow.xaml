@@ -25,7 +25,7 @@
             <!-- 標題列 -->
             <Grid Grid.Row="0" Margin="28,20,20,12"
                   MouseLeftButtonDown="TitleBar_MouseDown" Cursor="SizeAll">
-                <TextBlock Text="WORK LOG" Foreground="#7070A0" FontSize="10"
+                <TextBlock Text="WORK LOG" Foreground="#D0D0E0" FontSize="10"
                            FontWeight="Bold" VerticalAlignment="Center"/>
                 <Button HorizontalAlignment="Right" VerticalAlignment="Center"
                         Width="24" Height="24" Click="BtnClose_Click" Cursor="Hand"
@@ -72,9 +72,9 @@
                                         <StackPanel HorizontalAlignment="Right"
                                                     Orientation="Horizontal" VerticalAlignment="Center">
                                             <TextBlock Text="{Binding CyclesText}"
-                                                       Foreground="#4E6060" FontSize="11" Margin="0,0,8,0"/>
+                                                       Foreground="#A0C0C0" FontSize="11" Margin="0,0,8,0"/>
                                             <TextBlock Text="{Binding DateText}"
-                                                       Foreground="#555575" FontSize="11"/>
+                                                       Foreground="#A0A0D0" FontSize="11"/>
                                         </StackPanel>
                                     </Grid>
                                     <!-- Comment -->
@@ -86,9 +86,9 @@
                                                 Padding="8,5" Margin="0,6,0,0"
                                                 Visibility="{Binding HasNextHint, Converter={StaticResource BoolToVis}}">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="▶ " Foreground="#7070A0" FontSize="11"/>
+                                                <TextBlock Text="▶ " Foreground="#B0B0D0" FontSize="11"/>
                                                 <TextBlock Text="{Binding NextHint}"
-                                                           Foreground="#8080B0" FontSize="11"
+                                                           Foreground="#D0D0E0" FontSize="11"
                                                            TextWrapping="Wrap"/>
                                             </StackPanel>
                                         </Border>
@@ -102,7 +102,7 @@
 
             <!-- 無記錄提示 -->
             <TextBlock x:Name="TxtEmpty" Grid.Row="1"
-                       Text="No work logs yet." Foreground="#3A3A5A"
+                       Text="No work logs yet." Foreground="#9090B0"
                        FontSize="13" HorizontalAlignment="Center"
                        VerticalAlignment="Center" Visibility="Collapsed"/>
 
